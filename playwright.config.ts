@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Travel planner under test. Wanderlog's Greece trip planner by default.
-const BASE_URL = process.env.BASE_URL ?? 'https://wanderlog.com';
+const BASE_URL = process.env.BASE_URL || 'https://wanderlog.com';
 const CI = !!process.env.CI;
 
 export default defineConfig({
