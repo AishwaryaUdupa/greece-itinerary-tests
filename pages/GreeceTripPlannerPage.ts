@@ -11,6 +11,7 @@ export class GreeceTripPlannerPage extends BasePage {
   readonly heading: Locator;
   readonly startDate: Locator;
   readonly endDate: Locator;
+  /** Primary CTA. Wanderlog labels it "Plan trip" on mobile and "Start planning" on desktop. */
   readonly planTripButton: Locator;
   readonly logIn: Locator;
   readonly signUp: Locator;
@@ -27,7 +28,7 @@ export class GreeceTripPlannerPage extends BasePage {
     this.heading = page.getByRole('heading', { name: /Greece Trip Planner/i }).first();
     this.startDate = page.getByText('Start date', { exact: true }).first();
     this.endDate = page.getByText('End date', { exact: true }).first();
-    this.planTripButton = page.getByRole('button', { name: /^Plan trip$/i }).first();
+    this.planTripButton = page.getByRole('button', { name: /^(Plan trip|Start planning)$/i }).first();
     this.logIn = page.getByRole('link', { name: /^Log in$/i }).or(page.getByRole('button', { name: /^Log in$/i })).first();
     this.signUp = page.getByRole('link', { name: /^Sign up$/i }).or(page.getByRole('button', { name: /^Sign up$/i })).first();
     this.topDestinations = page.getByText(/Top destinations in Greece/i).first();

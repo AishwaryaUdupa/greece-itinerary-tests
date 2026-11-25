@@ -11,8 +11,9 @@ export class GreeceGuidesPage extends BasePage {
   constructor(page: Page) {
     super(page);
     this.heading = page.getByRole('heading', { level: 1 }).first();
-    // Links into published trips / guides
-    this.itineraryLinks = page.locator('a[href*="/view/"]');
+    // Links into published trips / guides. Each card has an image link with no text
+    // and a titled text link; only the titled one is clickable, so filter on text.
+    this.itineraryLinks = page.locator('a[href*="/view/"]').filter({ hasText: /\S/ });
   }
 
   async expectLoaded(): Promise<void> {
