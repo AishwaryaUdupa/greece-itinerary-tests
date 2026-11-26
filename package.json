@@ -12,7 +12,10 @@
     "report": "playwright show-report",
     "codegen": "playwright codegen",
     "install:browsers": "playwright install --with-deps",
-    "lint:types": "tsc --noEmit"
+    "lint:types": "tsc --noEmit",
+    "test:functional": "playwright test --project=desktop-chrome --project=desktop-firefox --project=mobile-chrome --project=mobile-safari --project=availability",
+    "test:perf": "playwright test --project=performance --workers=1 && node scripts/perf-summary.js",
+    "perf:summary": "node scripts/perf-summary.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",

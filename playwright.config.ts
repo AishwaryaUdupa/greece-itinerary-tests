@@ -41,5 +41,7 @@ export default defineConfig({
     { name: 'mobile-safari', testDir: './tests/ui', use: { ...devices['iPhone 14'] } },
     // HTTP-level availability checks for key planning pages (no browser)
     { name: 'availability', testDir: './tests/api' },
+    // Performance budgets (run alone with --workers=1; see .github/workflows/performance.yml)
+    { name: 'performance', testDir: './tests/perf', retries: 0, use: { ...devices['Desktop Chrome'] } },
   ],
 });

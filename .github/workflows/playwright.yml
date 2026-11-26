@@ -19,7 +19,7 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npx playwright install --with-deps chromium firefox webkit
-      - run: npx playwright test
+      - run: npm run test:functional
         env:
           BASE_URL: ${{ vars.BASE_URL }}
       - uses: actions/upload-artifact@v4
